@@ -11,12 +11,12 @@ app = Flask(__name__)
 action_handlers = {""}
 
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def hello():
     return "Hello, World!"
 
 
-@app.route("/actions/<bot_id>")
+@app.route("/actions/<bot_id>", methods=['GET'])
 def actions(bot_id):
     logging.info(f"Requesting actions for bot {bot_id}")
     # Here, bot_it is unused, but you could use it to restrict the list of actions
@@ -42,7 +42,7 @@ def actions(bot_id):
     )
 
 
-@app.route("/action/run")
+@app.route("/action/run", methods=['POST'])
 def run_action():
     request_body = request.json
 
