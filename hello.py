@@ -25,9 +25,9 @@ def actions(bot_id):
         [
             {
                 "name": "action1",
-                "description:": "Some action from the Python server",
+                "description": "Some action from the Python server",
                 "category": "category1",
-                "params": [
+                "parameters": [
                     {
                         "name": "param1",
                         "type": "string",
