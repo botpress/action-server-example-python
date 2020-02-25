@@ -16,4 +16,5 @@ Prerequisites:
 Now deploy the app:
 
 1. `heroku login`
+2. `heroku create`
 2. `git push heroku master`
