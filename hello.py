@@ -2,6 +2,7 @@ from flask import Flask
 import logging
 import sys
 from flask import jsonify
+from flask import request
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -39,3 +40,18 @@ def actions(bot_id):
             }
         ]
     )
+
+
+@app.route("/action/run")
+def run_action():
+    request_body = request.json
+
+    print(request_body)
+
+    action_name = request_body["actionName"]
+    bot_id = request_body["botId"]
+    token = request_body["token"]
+    action_args = request_body["actionArgs"]
+    incoming_event = request_body["incomingEvent"]
+
+    return jsonify({"incomingEvent": incoming_event})
