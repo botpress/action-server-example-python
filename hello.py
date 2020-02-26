@@ -39,7 +39,7 @@ employees = [
 
 @app.route("/", methods=["GET"])
 def hello():
-    console.log(os.environ['BOTPRESS_SERVER_URL'])
+    print(os.environ['BOTPRESS_SERVER_URL']))
     return "Hello, World!"
 
 
