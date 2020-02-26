@@ -94,6 +94,9 @@ def run_action():
                 "payloads": [
                     {"type": "text", "text": "OK, Python server is listing employees"}
                 ],
+                "test1": 1,
+                "test2": "2",
+                "test3": {"key1": 1, "key2": "2"},
             },
             headers={"Authorization": f"bearer {token}"},
         )
