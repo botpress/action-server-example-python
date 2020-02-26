@@ -77,6 +77,8 @@ def actions(bot_id):
 def run_action():
     request_body = request.json
 
+    print(f'Received request: {request_body}')
+
     action_name = request_body["actionName"]
     bot_id = request_body["botId"]
     token = request_body["token"]
