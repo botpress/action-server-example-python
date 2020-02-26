@@ -3,6 +3,8 @@ import logging
 import sys
 from flask import jsonify
 from flask import request
+import requests
+import os
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -37,6 +39,7 @@ employees = [
 
 @app.route("/", methods=["GET"])
 def hello():
+    console.log(os.environ['BOTPRESS_SERVER_URL'])
     return "Hello, World!"
 
 
