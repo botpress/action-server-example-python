@@ -77,7 +77,7 @@ def actions(bot_id):
 def run_action():
     request_body = request.json
 
-    print(f'Received request: {request_body}')
+    print(f"Received request: {request_body}")
 
     action_name = request_body["actionName"]
     bot_id = request_body["botId"]
@@ -89,13 +89,13 @@ def run_action():
         botpress_server_url = os.environ["BOTPRESS_SERVER_URL"]
         requests.post(
             f"{botpress_server_url}/api/v1/sdk/events/replyToEvent",
-            {
+            data={
                 "event": incoming_event,
                 "payloads": [
                     {"type": "text", "text": "OK, Python server is listing employees"}
                 ],
             },
-            headers={'Authorization': f'bearer {token}'}
+            headers={"Authorization": f"bearer {token}"},
         )
 
         incoming_event["state"]["temp"]["employees"] = [
