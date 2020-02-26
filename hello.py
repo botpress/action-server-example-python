@@ -39,7 +39,6 @@ employees = [
 
 @app.route("/", methods=["GET"])
 def hello():
-    print(os.environ['BOTPRESS_SERVER_URL'])
     return "Hello, World!"
 
 
@@ -85,6 +84,18 @@ def run_action():
     incoming_event = request_body["incomingEvent"]
 
     if action_name == "list_employees":
+        botpress_server_url = os.environ["BOTPRESS_SERVER_URL"]
+        requests.post(
+            f"{botpress_server_url}/api/v1/sdk/events/replyToEvent",
+            {
+                "event": incoming_event,
+                "payloads": [
+                    {"type": "text", "text": "OK, Python server is listing employees"}
+                ],
+            },
+            headers={'Authorization': f'bearer {token}'}
+        )
+
         incoming_event["state"]["temp"]["employees"] = [
             f'{e["first_name"]} {e["last_name"]}' for e in employees
         ]
