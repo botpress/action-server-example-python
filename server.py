@@ -54,13 +54,13 @@ def actions(bot_id):
                 "name": "list_employees",
                 "description": "Lists employees",
                 "category": "HR",
-                "parameters": [],
+                "params": [],
             },
             {
                 "name": "get_employee",
                 "description": "Get details of an employee",
                 "category": "HR",
-                "parameters": [
+                "params": [
                     {
                         "name": "employee_id",
                         "type": "string",
